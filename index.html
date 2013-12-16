@@ -28,6 +28,51 @@
       background: url(media/front.png) no-repeat center;
       background-size: contain;
     }
+    
+    .messageend {
+      position: absolute;
+      width: 350px;
+      height: 200px;
+      top: 38%;
+      left: 50%;
+      margin-top: -100px;
+      margin-left: -175px;
+      z-index: 99;
+      text-align: center;
+      color: #262015;
+      line-height: 1.5;
+      font-size: 20px;
+      visibility: hidden;
+      opacity: 0;
+      transform: translate3d(0,20px,0);
+      -webkit-transform: translate3d(0,20px,0);
+      -moz-transform: translate3d(0,20px,0);
+      transition: opacity .5s ease, transform .5s ease;
+      -webkit-transition: opacity .5s ease, -webkit-transform .5s ease;
+      -moz-transition: opacity .5s ease, -webkit-transform .5s ease;
+    }
+    
+    .gameover .messageend {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0,0,0);
+      -webkit-transform: translate3d(0,0,0);
+      -moz-transform: translate3d(0,0,0);
+    }
+    
+    .messageend img {
+      width: 100%;
+    }
+    
+    .messageend a {
+      color: #262015;
+    }
+    
+    audio {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
 	</style>
 	
 	<!-- We advise mobile browser to leave the page unscaled; If scaling is 
@@ -38,16 +83,21 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	
-	<script type="text/javascript" src="lib/impact/impact.js"></script>
-	<script type="text/javascript" src="lib/game/main.js"></script>
-	<!--<script type="text/javascript" src="game.min.js"></script>-->
+	<!--<script type="text/javascript" src="lib/impact/impact.js"></script>
+	<script type="text/javascript" src="lib/game/main.js"></script>-->
+	<script type="text/javascript" src="game.min.js"></script>
 </head>
 <body onload="initGame()">
 	<canvas id="canvas"></canvas>
   <div class="front"></div>
   
   <div class="messageend">
-    
+    <img src="media/end.png" alt="Thanks for playing !" />
+    a game by<br /><a href="http://robinjeanney.fr" target="_blank">Robin Jeanney</a> & <a href="http://cmegnin.fr" target="_blank">Cl&eacute;ment M&eacute;gnin</a>
   </div>
+  
+  <audio controls autoplay loop>
+    <source src="media/sounds/music.mp3" type="audio/mpeg">
+  </audio>
 </body>
 </html>
